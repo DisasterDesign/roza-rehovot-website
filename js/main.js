@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- Orientation change fix --- */
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      document.documentElement.style.height = 'auto';
+      requestAnimationFrame(() => {
+        document.documentElement.style.height = '';
+        window.scrollBy(0, 0);
+      });
+    }, 200);
+  });
+
   /* --- 10. Page Loader --- */
   const pageLoader = document.querySelector('.page-loader');
   if (pageLoader) {
