@@ -167,7 +167,7 @@ button {
 }
 
 .page-loader__logo img {
-  height: 60px;
+  height: 120px;
   width: auto;
 }
 
@@ -490,12 +490,12 @@ button {
 }
 
 .header__logo img {
-  height: 50px;
+  height: 100px;
   width: auto;
 }
 
 .header.scrolled .header__logo img {
-  height: 40px;
+  height: 80px;
 }
 
 .header__nav {
@@ -1293,7 +1293,7 @@ textarea.contact__field {
 }
 
 .footer__logo img {
-  height: 45px;
+  height: 90px;
   width: auto;
 }
 
