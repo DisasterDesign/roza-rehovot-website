@@ -4,18 +4,33 @@
 
 /* --- CSS Variables --- */
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-card: #111111;
-  --gold: #BE965C;
-  --gold-light: #D4AF6E;
-  --gold-glow: rgba(190, 150, 92, 0.3);
-  --red-cta: #C62828;
-  --red-hover: #E53935;
-  --text-primary: #FFFFFF;
-  --text-secondary: #B0B0B0;
-  --text-muted: #666666;
-  --divider: rgba(190, 150, 92, 0.3);
+  /* — Backgrounds — */
+  --bg-primary: #293621;
+  --bg-secondary: #1E2A17;
+  --bg-card: #243019;
+  --bg-darkest: #151E10;
+
+  /* — Gold accent — */
+  --gold: #C29355;
+  --gold-light: #D4A96A;
+  --gold-glow: rgba(194, 147, 85, 0.3);
+  --gold-dark: #A67B3D;
+
+  /* — CTA — */
+  --cta: #C29355;
+  --cta-hover: #D4A96A;
+  --red-cta: #C29355;
+  --red-hover: #D4A96A;
+
+  /* — Text — */
+  --text-primary: #F4F6F8;
+  --text-secondary: #C5C9CE;
+  --text-muted: #7A8570;
+
+  /* — Dividers & borders — */
+  --divider: rgba(194, 147, 85, 0.25);
+  --border-elegant: rgba(194, 147, 85, 0.4);
+
   --font-body: 'Heebo', sans-serif;
   --font-display: 'Playfair Display', serif;
 }
@@ -110,6 +125,22 @@ button {
   margin-right: auto;
 }
 
+/* Elegant gold border frame — inspired by logo */
+.elegant-frame {
+  position: relative;
+}
+
+.elegant-frame::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid var(--border-elegant);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
 /* ===========================
    PAGE LOADER (10)
    =========================== */
@@ -162,7 +193,7 @@ button {
 .scroll-progress__bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to left, var(--gold), var(--red-cta));
+  background: linear-gradient(to left, var(--gold), var(--gold-dark));
   transition: width 0.05s linear;
   will-change: width;
 }
@@ -175,7 +206,7 @@ button {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(190, 150, 92, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(194, 147, 85, 0.4), transparent 70%);
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
@@ -191,7 +222,7 @@ button {
 .cursor-glow.hover {
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle, rgba(190, 150, 92, 0.6), transparent 70%);
+  background: radial-gradient(circle, rgba(194, 147, 85, 0.6), transparent 70%);
 }
 
 /* --- Scroll Animations --- */
@@ -294,7 +325,7 @@ button {
   height: 2px;
   background: var(--gold);
   transition: width 1.2s ease;
-  box-shadow: 0 0 0 rgba(190, 150, 92, 0);
+  box-shadow: 0 0 0 rgba(194, 147, 85, 0);
 }
 
 .section-divider__line.visible {
@@ -304,7 +335,7 @@ button {
 
 @keyframes dividerGlow {
   0%, 100% { box-shadow: 0 0 8px var(--gold-glow); }
-  50% { box-shadow: 0 0 20px var(--gold-glow), 0 0 40px rgba(190, 150, 92, 0.15); }
+  50% { box-shadow: 0 0 20px var(--gold-glow), 0 0 40px rgba(194, 147, 85, 0.15); }
 }
 
 /* --- Keyframes --- */
@@ -445,7 +476,7 @@ button {
 }
 
 .header.scrolled {
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(41, 54, 33, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.6rem 0;
@@ -564,7 +595,7 @@ button {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(10, 10, 10, 0.98);
+  background: rgba(30, 42, 23, 0.98);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -642,7 +673,7 @@ button {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+  background: linear-gradient(to bottom, rgba(41, 54, 33, 0.5), rgba(21, 30, 16, 0.8));
   z-index: 1;
 }
 
@@ -791,7 +822,7 @@ button {
 .events__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(30, 42, 23, 0.8);
 }
 
 .events__content {
@@ -815,10 +846,10 @@ button {
 .btn-cta {
   display: inline-block;
   padding: 0.8rem 2.5rem;
-  background: var(--red-cta);
-  color: var(--text-primary);
+  background: var(--cta);
+  color: var(--bg-primary);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 4px;
   transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
   position: relative;
@@ -826,9 +857,9 @@ button {
 }
 
 .btn-cta:hover {
-  background: var(--red-hover);
+  background: var(--cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(198, 40, 40, 0.4);
+  box-shadow: 0 4px 20px var(--gold-glow);
 }
 
 .btn-cta:active {
@@ -851,6 +882,9 @@ button {
 .gallery {
   padding: 6rem 0;
   background: var(--bg-secondary);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(194, 147, 85, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(194, 147, 85, 0.02) 0%, transparent 50%);
 }
 
 .gallery__grid {
@@ -884,7 +918,7 @@ button {
 .gallery__item-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(21, 30, 16, 0.75) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -932,7 +966,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(21, 30, 16, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -1073,7 +1107,7 @@ button {
 }
 
 .hours__table tr {
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(194, 147, 85, 0.12);
 }
 
 .hours__table td {
@@ -1096,7 +1130,7 @@ button {
   height: 300px;
   border-radius: 8px;
   border: none;
-  filter: grayscale(0.8) brightness(0.8);
+  filter: grayscale(0.5) brightness(0.85) sepia(0.15) hue-rotate(60deg);
   margin-bottom: 1.5rem;
 }
 
@@ -1168,6 +1202,8 @@ button {
 .contact {
   padding: 6rem 0;
   background: var(--bg-secondary);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(194, 147, 85, 0.04) 0%, transparent 60%);
 }
 
 .contact__form {
@@ -1243,7 +1279,7 @@ textarea.contact__field {
    FOOTER
    =========================== */
 .footer {
-  background: #050505;
+  background: var(--bg-darkest);
   padding: 60px 0 30px;
 }
 

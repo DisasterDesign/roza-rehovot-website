@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       [name, phone].forEach(field => {
         if (!field.value.trim()) {
-          field.style.borderColor = '#E53935';
+          field.style.borderColor = '#D4A96A';
           valid = false;
         } else {
           field.style.borderColor = '';
