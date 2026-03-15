@@ -525,21 +525,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Menu Popup --- */
   const menuPopup = document.getElementById('menuPopup');
-  const menuBtns = document.querySelectorAll('#menuBtn, #menuBtnMobile');
+  const menuBtn = document.getElementById('menuBtn');
   const menuClose = document.getElementById('menuPopupClose');
+  const menuContent = document.getElementById('menuContent');
+  const menuTabs = document.querySelectorAll('.menu-popup__tab');
 
-  if (menuPopup && menuBtns.length > 0) {
+  if (menuPopup && menuBtn) {
     const openMenu = () => {
       menuPopup.classList.add('open');
       menuPopup.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      // Close mobile menu if open
-      if (mobileMenu && mobileMenu.classList.contains('open')) {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
     };
 
     const closeMenu = () => {
@@ -548,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     };
 
-    menuBtns.forEach(btn => btn.addEventListener('click', openMenu));
+    menuBtn.addEventListener('click', openMenu);
     if (menuClose) menuClose.addEventListener('click', closeMenu);
     menuPopup.addEventListener('click', (e) => {
       if (e.target === menuPopup) closeMenu();
@@ -556,6 +551,38 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menuPopup.classList.contains('open')) closeMenu();
     });
+
+    // Category tab navigation
+    menuTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        menuTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = document.getElementById(tab.dataset.target);
+        if (target && menuContent) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Update active tab on scroll
+    if (menuContent) {
+      const cats = menuContent.querySelectorAll('.menu-cat');
+      menuContent.addEventListener('scroll', () => {
+        let current = '';
+        cats.forEach(cat => {
+          const rect = cat.getBoundingClientRect();
+          const contentRect = menuContent.getBoundingClientRect();
+          if (rect.top <= contentRect.top + 80) {
+            current = cat.id;
+          }
+        });
+        if (current) {
+          menuTabs.forEach(t => {
+            t.classList.toggle('active', t.dataset.target === current);
+          });
+        }
+      });
+    }
   }
 
 });

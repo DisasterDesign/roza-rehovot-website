@@ -88,7 +88,6 @@
         </ul>
       </nav>
 
-      <button class="header__cta header__menu-btn" id="menuBtn" aria-label="פתח תפריט">תפריט</button>
       <a href="https://wolt.com/he/isr/rishon-lezion-hashfela-area/restaurant/roza-rehovot" target="_blank" rel="noopener" class="header__cta">להזמנות משלוחים</a>
 
       <button class="hamburger" id="hamburger" aria-label="פתח תפריט" aria-expanded="false">
@@ -106,7 +105,6 @@
     <a href="#events" class="mobile-menu__link">האירועים שלנו</a>
     <a href="#gallery" class="mobile-menu__link">גלריה</a>
     <a href="#contact" class="mobile-menu__link">צרו קשר</a>
-    <button class="mobile-menu__cta mobile-menu__menu-btn" id="menuBtnMobile">תפריט</button>
     <a href="https://wolt.com/he/isr/rishon-lezion-hashfela-area/restaurant/roza-rehovot" target="_blank" rel="noopener" class="mobile-menu__cta">להזמנות משלוחים</a>
   </div>
 
@@ -125,6 +123,7 @@
         <h1 class="hero__title">ROZA</h1>
         <h2 class="hero__subtitle">רוזה רחובות — אוכל שאנשים אוהבים</h2>
         <div class="hero__line" aria-hidden="true"></div>
+        <button class="hero__menu-btn" id="menuBtn">לתפריט המסעדה</button>
       </div>
       <!-- Scroll indicator — mouse icon (8) -->
       <a href="#about" class="hero__scroll" aria-label="גלול למטה">
@@ -400,9 +399,110 @@
 
   <!-- Menu Popup -->
   <div class="menu-popup" id="menuPopup" role="dialog" aria-label="תפריט המסעדה" aria-hidden="true">
-    <button class="menu-popup__close" id="menuPopupClose" aria-label="סגור תפריט">&times;</button>
-    <div class="menu-popup__content">
-      <img src="תפריט.jpeg" alt="תפריט מסעדת רוזה רחובות" class="menu-popup__img">
+    <div class="menu-popup__inner">
+      <div class="menu-popup__header">
+        <h2 class="menu-popup__title">תפריט</h2>
+        <button class="menu-popup__close" id="menuPopupClose" aria-label="סגור תפריט">&times;</button>
+      </div>
+      <nav class="menu-popup__nav" id="menuNav">
+        <button class="menu-popup__tab active" data-target="cat-first">מנות ראשונות</button>
+        <button class="menu-popup__tab" data-target="cat-salads">סלטים</button>
+        <button class="menu-popup__tab" data-target="cat-express">ROZA Express</button>
+        <button class="menu-popup__tab" data-target="cat-chef">המלצות השף</button>
+        <button class="menu-popup__tab" data-target="cat-sides">תוספות</button>
+        <button class="menu-popup__tab" data-target="cat-main">מנות עיקריות</button>
+        <button class="menu-popup__tab" data-target="cat-kids">ילדים</button>
+        <button class="menu-popup__tab" data-target="cat-desserts">קינוחים</button>
+        <button class="menu-popup__tab" data-target="cat-drinks">משקאות</button>
+      </nav>
+      <div class="menu-popup__content" id="menuContent">
+
+        <!-- מנות ראשונות -->
+        <div class="menu-cat" id="cat-first">
+          <h3 class="menu-cat__title">מנות ראשונות</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Wings</span><span class="menu-item__price">44</span></div><p class="menu-item__desc">with the Chef's sauce (500 grams)</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Eggplant Baladi</span><span class="menu-item__price">42</span></div><p class="menu-item__desc">tehina, herbs, garlic confit, bruschetta</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Cigars</span><span class="menu-item__price">42</span></div><p class="menu-item__desc">filled with pulled meat, alongside tehina</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Asado Fricasse</span><span class="menu-item__price">44</span></div><p class="menu-item__desc">pickled lemon aioli, coriander and chili</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Liver Pate Brûlée</span><span class="menu-item__price">44</span></div><p class="menu-item__desc">liver cream, caramelized sugar, bruschetta the Chef's jam</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Charcoal-Roasted Sweet Potato</span><span class="menu-item__price">32</span></div><p class="menu-item__desc">garlic confit, chimichurri and the Chef's tehina</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Our House Bread</span><span class="menu-item__price">29</span></div><p class="menu-item__desc">olives, tehina and tomato hyssop dip</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Entrecôte Skewer</span><span class="menu-item__price">72</span></div><p class="menu-item__desc">120 grams, potato purée (mashed potatoes)</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Soup of the Day</span><span class="menu-item__price">34</span></div><p class="menu-item__desc">a varying soup (during the winter)</p></div>
+        </div>
+
+        <!-- סלטים -->
+        <div class="menu-cat" id="cat-salads">
+          <h3 class="menu-cat__title">סלטים</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Chicken Caesar Salad</span><span class="menu-item__price">72</span></div><p class="menu-item__desc">premium lettuce mix, croutons, onions and chicken breast in Caesar sauce</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Market Salad</span><span class="menu-item__price">46</span></div><p class="menu-item__desc">varying vegetable mix, olive oil and lemon</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Roza Salad</span><span class="menu-item__price">56</span></div><p class="menu-item__desc">Lalique lettuce, seasonal fruits, purple onion, caramelized pecans in orange vinaigrette</p></div>
+        </div>
+
+        <!-- ROZA Express -->
+        <div class="menu-cat" id="cat-express">
+          <h3 class="menu-cat__title">ROZA Express — 59 ₪</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Bread of your Choice</span></div><p class="menu-item__desc">tortilla / frena</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Meat of your Choice</span></div><p class="menu-item__desc">entrecôte / chicken breast. Fried onions, lettuce, tomato and pickled vegetables</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Sauce of your Choice</span></div><p class="menu-item__desc">tehina / garlic mayonnaise</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Hamburger</span></div><p class="menu-item__desc">regular / gluten-free bread. At your Choice: beef 220 grams / vegan. Lettuce, tomato, pickled vegetables, purple onion and Royal sauce</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">On the meat</span><span class="menu-item__price">12</span></div><p class="menu-item__desc">onion jam / sautéed mushrooms / asado</p></div>
+          <div class="menu-item menu-item--highlight"><div class="menu-item__top"><span class="menu-item__name">Meal Upgrade: side dish + drink</span><span class="menu-item__price">29</span></div></div>
+        </div>
+
+        <!-- המלצות השף -->
+        <div class="menu-cat" id="cat-chef">
+          <h3 class="menu-cat__title">המלצות השף</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Crispy Chicken</span><span class="menu-item__price">62</span></div><p class="menu-item__desc">served in a hamburger bun, coleslaw salad, lettuce, pickled vegetables and hot chili</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Frena Siniya</span><span class="menu-item__price">62</span></div><p class="menu-item__desc">our house kebab, chimichurri, pickled cucumber, amchoor tehina, pickled onion, roquette leaves</p></div>
+        </div>
+
+        <!-- תוספות -->
+        <div class="menu-cat" id="cat-sides">
+          <h3 class="menu-cat__title">תוספות — 23 ₪</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Side Dishes</span></div><p class="menu-item__desc">French fries / onion rings / sweet potato fries / a single-serving salad / purée (mashed potato) balls</p></div>
+        </div>
+
+        <!-- מנות עיקריות -->
+        <div class="menu-cat" id="cat-main">
+          <h3 class="menu-cat__title">מנות עיקריות</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Poulet</span><span class="menu-item__price">84</span></div><p class="menu-item__desc">in greens marinade, roasted almonds and rice with herbs</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Schnitzel</span><span class="menu-item__price">79</span></div><p class="menu-item__desc">with a side dish of potato purée (mashed potatoes)</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Chicken Livers</span><span class="menu-item__price">79</span></div><p class="menu-item__desc">mushrooms and onion in plum sauce, potato purée (mashed potatoes)</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Jerusalem Mixed Grill</span><span class="menu-item__price">84</span></div><p class="menu-item__desc">Yemenite Lahoh, sumac, onion, parsley and tehina</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Chicken Breast</span><span class="menu-item__price">79</span></div><p class="menu-item__desc">green beans, spinach leaves and zucchini</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Entrecôte Steak (300 grams)</span><span class="menu-item__price">189</span></div><p class="menu-item__desc">served with charcoal-roasted sweet potato</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Asado Foccacia</span><span class="menu-item__price">84</span></div><p class="menu-item__desc">long-cooked, roasted onions, chipotle aioli and roquette</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Pulled Kebab Focaccia</span><span class="menu-item__price">84</span></div><p class="menu-item__desc">Mechouia salad, sumac, onion and amchoor tehina</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Salmon Fillet</span><span class="menu-item__price">84</span></div><p class="menu-item__desc">potato purée (mashed potatoes) and Bok Choy leaves</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Entrecôte/Chicken Fettuccine</span><span class="menu-item__price">79</span></div><p class="menu-item__desc">onions, mushrooms, greens, in the Chef's sauce</p></div>
+        </div>
+
+        <!-- ילדים -->
+        <div class="menu-cat" id="cat-kids">
+          <h3 class="menu-cat__title">ארוחות ילדים — 49 ₪</h3>
+          <p class="menu-cat__note">Served with grape juice / lemonade and a surprise</p>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Chicken Tenders / Burger (100 grams)</span></div><p class="menu-item__desc">with a side dish of French fries</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Kids' Pasta</span></div><p class="menu-item__desc">in white sauce</p></div>
+        </div>
+
+        <!-- קינוחים -->
+        <div class="menu-cat" id="cat-desserts">
+          <h3 class="menu-cat__title">קינוחים</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Fudge</span><span class="menu-item__price">44</span></div><p class="menu-item__desc">hot rich chocolate cake, vanilla ice cream and crumble</p></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Profiteroles</span><span class="menu-item__price">49</span></div><p class="menu-item__desc">Warm choux pastry puffs filled with vanilla pastry cream, served with vanilla ice cream and salted caramel drizzle</p></div>
+        </div>
+
+        <!-- משקאות -->
+        <div class="menu-cat" id="cat-drinks">
+          <h3 class="menu-cat__title">משקאות</h3>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Soft Drinks</span><span class="menu-item__price">13</span></div></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Soda / Mineral Water</span><span class="menu-item__price">10</span></div></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Lemonade in a Glass</span><span class="menu-item__price">10</span></div></div>
+          <div class="menu-item"><div class="menu-item__top"><span class="menu-item__name">Beers (Bottled) — Carlsberg / Tuborg</span><span class="menu-item__price">19</span></div></div>
+        </div>
+
+      </div>
     </div>
   </div>
 
