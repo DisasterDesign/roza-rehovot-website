@@ -1369,6 +1369,20 @@ textarea.contact__field {
   color: var(--gold);
 }
 
+.footer__credit {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.footer__credit a {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.footer__credit a:hover {
+  color: var(--gold);
+}
+
 /* ===========================
    WHATSAPP FLOATING BUTTON — Heartbeat (9)
    =========================== */
