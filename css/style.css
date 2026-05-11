@@ -1372,6 +1372,8 @@ textarea.contact__field {
 .footer__credit {
   font-size: 0.75rem;
   opacity: 0.7;
+  letter-spacing: 0.05em;
+  direction: ltr;
 }
 
 .footer__credit a {
